@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module ase('/BramboProject2k15/model/CitySensing.ecore')]
+
+
+[template public generateReport(aCity : MonitoredCity)]
+<report>
+	<city name = "[aCity.name/]">
+		[for (d: District | aCity.districts)]
+		<district name = "[d.name/]">
+			[for (s: StatisticalData | d.data)]
+			<data name = "[s.name/]">
+				[s.name.toUpperCase()/] = [comment[s.metric/]
+			</data>
+			[/for]
+		</district>
+		[/for]
+	</city>
+</report>
+[/template]
